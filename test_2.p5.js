@@ -1,12 +1,14 @@
 function setup() {
-  createCanvas(800, 800);
+  let myCanvas = createCanvas(600, 600);
+  myCanvas.parent('myContainer');
+  fill(0);
 }
 
 function draw() {
   if (mouseIsPressed) {
-    fill(255, 25, 25);
+    fill(205, 92, 92);
   } else {
-    fill(255, 255, 100);
+    fill(255, 160, 122);
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  ellipse(mouseX, mouseY, 20, 20);
 }
