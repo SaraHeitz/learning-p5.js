@@ -18,7 +18,7 @@ var col = {
 };
 
 function setup() {
-createCanvas(600, 600);
+createCanvas(displayWidth, displayHeight);
 background(246,246,246);
 }
 
