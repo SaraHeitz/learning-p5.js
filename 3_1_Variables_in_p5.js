@@ -1,8 +1,7 @@
 // createGraphics()
 // Code! Programming with p5.js
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/beginners/p5js/beginners/p5js/2.6-create-graphics.html
-// https://youtu.be/TaluaAD9MKA
+// https://thecodingtrain.com/beginners/p5js/3.1-conditional-statements.html
 
 // Main Sketch: https://editor.p5js.org/codingtrain/sketches/7RN7GFD-Y
 // Stars Sketch: https://editor.p5js.org/codingtrain/sketches/0kQ9v-bhM
@@ -14,11 +13,10 @@ let y = 300;
 let extraCanvas;
 
 var spot = {
-  x: 100d,
+  x: 100,
   y: 50
 };
 
-var <- c(x,y,z)
 
 var col = {
   r: 0,

@@ -1,0 +1,103 @@
+/* trying to set up a grid*/
+
+
+.container {
+    display: grid;
+    grid-template-columns: 100px 3fr 1fr 100px;
+    grid-template-rows: 0.8fr 5fr 1fr;
+    grid-template-areas:
+      ". header  ."
+      ". main . "
+      "footer footer footer";
+  }
+
+.container .topnav {
+    grid-area: header;
+    background-color: #FFF;
+    overflow: hidden;
+    margin-bottom: 60px;
+    }
+
+.topnav a {
+    float: left;
+    color: #00FF00;
+    text-align: center;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 350;
+    }
+    /* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #00FF00;
+    color: black;
+    }
+
+    /* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #f6f6f6;
+    color: #00FF00;
+    }
+
+.container .item {
+    grid-area: main;
+    }
+
+footer {
+    grid-area: footer;
+    margin-top:48px ;
+    background-color: #f6f6f6;
+    }
+
+    .link ul {
+      margin-left: -120;
+    }
+
+     li {
+      display: inline-block;
+      list-style-type: none;
+      margin-left: 20;
+      padding: 6px 1px;
+      font-size: 1.3em;
+
+     }
+     a:link {
+      text-decoration: none;
+      color:  #17202a ;
+      font-weight: 350;
+    }
+
+     a:visited {
+       color: #17202a ;
+       font-weight: 350;
+     }
+
+     h1 {
+       font-size: 1.2em; /* 30px/16=1.875em */
+       font-weight: 350;
+       letter-spacing: 0.5;
+       color: #00FF00;
+       margin-bottom: 48px;
+
+     }
+
+     h2 {
+       margin-top: 24px;
+       font-size: 2.5em; /* 30px/16=1.875em */
+       font-weight: 400;
+
+     }
+
+     p {
+       font-size: 1.5em; /* 14px/16=0.875em */
+       color: #17202a ;
+       font-weight: 350;
+       letter-spacing: 0.5;
+       line-height: 125%;
+     }
+
+body {
+    font-family: "Helvetica", Arial, sans-serif;
+    margin: auto;
+    width: 100%;
+    }
