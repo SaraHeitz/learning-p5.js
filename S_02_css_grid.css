@@ -1,15 +1,16 @@
 /* trying to set up a grid*/
 
-
 .container {
+    box-sizing:border-box;
     display: grid;
-    grid-template-columns: 100px 3fr 1fr 100px;
-    grid-template-rows: 0.8fr 5fr 1fr;
+    grid-template-columns:240px 3fr 1fr 1fr;
+    grid-template-rows: 120px 5fr 1fr;
     grid-template-areas:
-      ". header  ."
-      ". main . "
+      "header .  ."
+      "header main . "
       "footer footer footer";
   }
+
 
 .container .topnav {
     grid-area: header;
@@ -26,11 +27,12 @@
     text-decoration: none;
     font-size: 1.3em;
     font-weight: 350;
+
     }
     /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #00FF00;
-    color: black;
+    background-color: #F6F6F6;
+    color: #00FF00;
     }
 
     /* Add a color to the active/current link */
@@ -44,20 +46,17 @@
     }
 
 footer {
+
     grid-area: footer;
     margin-top:48px ;
-    background-color: #f6f6f6;
-    }
-
-    .link ul {
-      margin-left: -120;
+    background-color: #FFF;
     }
 
      li {
-      display: inline-block;
+
+      float: left;
+      display: inline-grid;
       list-style-type: none;
-      margin-left: 20;
-      padding: 6px 1px;
       font-size: 1.3em;
 
      }
@@ -65,10 +64,16 @@ footer {
       text-decoration: none;
       color:  #17202a ;
       font-weight: 350;
+      padding: 20
     }
 
      a:visited {
        color: #17202a ;
+       font-weight: 350;
+     }
+
+     a:hover {
+       color: #00FF00 ;
        font-weight: 350;
      }
 
