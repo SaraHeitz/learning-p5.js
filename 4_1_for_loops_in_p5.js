@@ -23,7 +23,6 @@ function draw() {
   ellipse(x,100,25,x);
   }
 
-
   for(var x = 0; x <= width; x = x + 26){
   noStroke()
   fill(0,x,255)

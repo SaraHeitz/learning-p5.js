@@ -19,9 +19,10 @@ function draw() {
 // this is a local variable.
 // I can only use it in this draw function
   var x = 0;
-
+//This is an exit condition
   while (x <= width) {
   ellipse(x,200,25,25);
+//This is an incremetation operation
   x = x + 50;
 }
 }
