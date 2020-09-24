@@ -15,6 +15,7 @@ function draw() {
 
   if (mouseX > 300) {
   fill(255,0,0);
+  rect(300, 200, 100, 100);
   }
 
   ellipse(300, 200, 100, 100);
