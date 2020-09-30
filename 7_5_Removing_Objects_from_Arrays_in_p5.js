@@ -11,36 +11,52 @@ let bubbles = [];
 
 function setup() {
   createCanvas(600, 400);
-  for (let i = 0; i < 10; i++) {
-    let x = random(width);
-    let y = random(height);
-    let r = random(20, 60);
-    let b = new Bubble(x, y, r);
-    bubbles.push(b);
   }
-}
+//   for (let i = 0; i < 10; i++) {
+//     let x = random(580);
+//     let y = random(380);
+//     let r = random(20, 60);
+//     let b = new Bubble(x, y, r);
+//     bubbles.push(b);
+//   }
+// }
 
-function mousePressed() {
-  for (let i = bubbles.length - 1; i >= 0; i--) {
-    if (bubbles[i].contains(mouseX, mouseY)) {
-      bubbles.splice(i, 1);
-    }
-  }
+// function mousePressed() {
+//   for (let i = bubbles.length - 1; i >= 0; i--) {
+//     if (bubbles[i].contains(mouseX, mouseY)) {
+//       bubbles.splice(i, 1);
+//     }
+//   }
+// }
+
+function mouseDragged() {
+    let x = mouseX;
+    let y = mouseY;
+    let r = random(5,15);
+    let b = new Bubble(mouseX, mouseY, r);
+    bubbles.push(b);
 }
 
 function draw() {
-  background(0);
+  background(30);
   for (let i = 0; i < bubbles.length; i++) {
     if (bubbles[i].contains(mouseX, mouseY)) {
-      bubbles[i].changeColor(255);
+      bubbles[i].changeColor(0,255,0);
     } else {
-      bubbles[i].changeColor(0);
+      bubbles[i].changeColor(30,30,30);
     }
     bubbles[i].move();
     bubbles[i].show();
   }
+  if(bubbles.length > 50) {
+    bubbles.splice(0,1);
+  }
+
 }
 
+
+
+////////////////////////////////////////////////
 class Bubble {
   constructor(x, y, r) {
     this.x = x;
@@ -49,8 +65,10 @@ class Bubble {
     this.brightness = 0;
   }
 
-  changeColor(bright) {
-    this.brightness = bright;
+  changeColor(red,g,b) {
+    this.red = red;
+    this.g = g;
+    this.b = b;
   }
 
   contains(px, py) {
@@ -63,14 +81,14 @@ class Bubble {
   }
 
   move() {
-    this.x = this.x + random(-2, 2);
-    this.y = this.y + random(-2, 2);
+    this.x = this.x + random(-1, 1);
+    this.y = this.y + random(-1, 1);
   }
 
   show() {
-    stroke(255);
-    strokeWeight(4);
-    fill(this.brightness, 125);
+    stroke(0,255,0);
+    strokeWeight(1);
+    fill(this.red, this.g, this.b);
     ellipse(this.x, this.y, this.r * 2);
   }
 }

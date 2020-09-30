@@ -1,79 +1,60 @@
-// Removing Objects from Arrays
+// Object Communication Part 1
 // Code! Programming with p5.js
 // The Coding Train / Daniel Shiffman
-// https://thecodingtrain.com/beginners/p5js/7.5-removing-objects-from-array.html
-// https://youtu.be/tA_ZgruFF9k
+// https://thecodingtrain.com/beginners/p5js/7.6-object-communication-1.html
+// https://youtu.be/W1-ej3Wu5zg
+// https://editor.p5js.org/codingtrain/sketches/OG-_2K16
 
-// Main Sketch: https://editor.p5js.org/codingtrain/sketches/smC4Jedi
-// Trail Sketch: https://editor.p5js.org/codingtrain/sketches/9Ve9S6Mx
-
-let bubbles = [];
+let bubble1;
+let bubble2;
 
 function setup() {
   createCanvas(600, 400);
-  for (let i = 0; i < 10; i++) {
-    let x = random(width);
-    let y = random(height);
-    let r = random(20, 60);
-    let b = new Bubble(x, y, r);
-    bubbles.push(b);
-  }
-}
-
-function mousePressed() {
-  for (let i = bubbles.length - 1; i >= 0; i--) {
-    if (bubbles[i].contains(mouseX, mouseY)) {
-      bubbles.splice(i, 1);
-    }
-  }
+  bubble1 = new Bubble(200, 200);
+  bubble2 = new Bubble(400, 200);
 }
 
 function draw() {
-  background(0);
-  for (let i = 0; i < bubbles.length; i++) {
-    if (bubbles[i].contains(mouseX, mouseY)) {
-      bubbles[i].changeColor(255);
-    } else {
-      bubbles[i].changeColor(0);
-    }
-    bubbles[i].move();
-    bubbles[i].show();
+  background(246);
+
+  if (bubble1.intersects(bubble2)) {
+    background(0, 255, 100);
   }
+
+  bubble1.show();
+  bubble2.show();
+
+  bubble2.x = mouseX;
+  bubble2.y = mouseY;
 }
 
 
 
 ////////////////////////////////////////////////
 class Bubble {
-  constructor(x, y, r) {
+
+  constructor(x, y, r = 50) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.brightness = 0;
+    this.brightness = 200;
   }
 
-  changeColor(bright) {
-    this.brightness = bright;
-  }
-
-  contains(px, py) {
-    let d = dist(px, py, this.x, this.y);
-    if (d < this.r) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  move() {
-    this.x = this.x + random(-2, 2);
-    this.y = this.y + random(-2, 2);
+  intersects(other) {
+    let d = dist(this.x, this.y, other.x, other.y);
+    return d < this.r + other.r;
+    // if (d < this.r + other.r) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
   show() {
     stroke(255);
-    strokeWeight(4);
-    fill(this.brightness, 125);
+    strokeWeight(2);
+    fill(this.brightness, 50);
     ellipse(this.x, this.y, this.r * 2);
   }
+
 }
